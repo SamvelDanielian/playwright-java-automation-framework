@@ -10,6 +10,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     strategy:
       fail-fast: false
       matrix:
@@ -27,7 +28,7 @@ jobs:
           cache: maven
 
       - name: Install Playwright browsers
-        run: mvn -B -q exec:java -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install --with-deps ${{ matrix.browser }}"
+        run: mvn -B -q exec:java -Dexec.mainClass=com.microsoft.playwright.CLI -Dexec.args="install ${{ matrix.browser }}"
 
       - name: Run test suite (headless)
         run: mvn -B test -Dheadless=true -Dbrowser=${{ matrix.browser }}
