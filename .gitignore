@@ -1,0 +1,17 @@
+target/
+.idea/
+.vscode/
+*.iml
+*.class
+*.log
+logs/
+screenshots/
+allure-results/
+allure-report/
+playwright-report/
+test-results/
+trace.zip
+.env
+.env.*
+.DS_Store
+Thumbs.db

@@ -1,0 +1,13 @@
+services:
+  playwright-tests:
+    build: .
+    container_name: playwright-orangehrm-tests
+    shm_size: "1gb"
+    environment:
+      - HEADLESS=true
+      - BROWSER=chromium
+    volumes:
+      - ./target/allure-results:/app/target/allure-results
+      - ./target/surefire-reports:/app/target/surefire-reports
+      - ./target/screenshots:/app/target/screenshots
+      - ./target/traces:/app/target/traces
